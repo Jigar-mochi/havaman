@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './Components/Navbar';
+import Weather from './Components/Weather';
+import './App.css'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import News from './Components/News';
+import { Fragment } from 'react';
+import Scrollbutton from './Components/Scrollbutton';
 
 function App() {
+  const pagesize = 18
+  const apikey = process.env.REACT_APP_APIKEYOFNEWS
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" index element={<Weather />} />
+          <Route path="health" element={<News pagesize={pagesize} country='in' category="health" apikey={apikey} />} />
+          <Route path="news" element={<News pagesize={pagesize} country='in' category="general" apikey={apikey} />} />
+          <Route path="science" element={<News pagesize={pagesize} country='in' category="science" apikey={apikey} />} />
+          <Route path="technology" element={<News pagesize={pagesize} country='in' category="technology" apikey={apikey} />} />
+        </Routes>
+      </BrowserRouter>
+      <Fragment>
+        <Scrollbutton />
+      </Fragment>
     </div>
   );
 }
