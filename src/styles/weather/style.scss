@@ -1,0 +1,20 @@
+.weather-container {
+	&::before {
+		content: '';
+		background: url(../../assets/images/Cloud.jpg) no-repeat center center/cover;
+		position: absolute;
+		width: 100%;
+		opacity: 0.7;
+		z-index: -1;
+		top: 0px;
+		left: 0px;
+		height: 100vh;
+	}
+	.form-padding {
+		padding-top: 10rem;
+		.form-control {
+			border-radius: 1rem;
+			width: auto;
+		}
+	}
+}

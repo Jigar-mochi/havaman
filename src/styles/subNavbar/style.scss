@@ -1,0 +1,16 @@
+.fix-container {
+	position: fixed;
+	top: 5rem;
+	z-index: 1000;
+	border-radius: 2rem;
+	background-color: rgb(252, 252, 255);
+	.bg-color {
+		background-color: aquamarine;
+	}
+	.text-color {
+		color: black;
+	}
+	.active {
+		color: yellow;
+	}
+}
